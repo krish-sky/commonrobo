@@ -22,7 +22,7 @@ VALIDATE $? "mongodb-org install"
 INDEX=$(mongosh --host $MONGODBIP --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")') &>>$LOGS_FILE
 
 if [ $INDEX -ne 0 ]; then
-    mongosh --host $MONGODBIP </app/db/master-data.js
+    mongosh --host $MONGODBIP </app/db/master-data.js &>>$LOGS_FILE
 else
     echo -e "Product already exist... $Y skipping $N"
 fi
