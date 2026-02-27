@@ -10,6 +10,7 @@ N="\e[0m" #normal
 
 START_TIME=$(date +%s)
 
+mkdir -p $LOGS_FOLDER
 
 echo "$(date "+%Y-%m-%d %H:%M:%S") | script started executing at $(date)" | tee -a $LOGS_FILE 
 
