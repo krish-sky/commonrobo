@@ -22,5 +22,3 @@ VALIDATE $? "Allowing remote connections"
 
 systemctl restart mongod &>>$LOGS_FILE
 VALIDATE $? "systemctl restart mongodb"
-
-echo "running scrpit from common"

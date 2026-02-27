@@ -10,6 +10,8 @@ N="\e[0m" #normal
 
 mkdir -p $LOGS_FOLDER
 
+echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+
 check_root(){
 if [ $USERID -ne 0 ]; then
     echo "Please run this script with root access"
@@ -17,13 +19,11 @@ if [ $USERID -ne 0 ]; then
 fi
 }
 
-
-
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo -e "$2 ..... is $R Failure $N" | tee $LOGS_FILE
+        echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $2 ..... is $R Failure $N" | tee $LOGS_FILE
         exit 1
     else
-        echo -e "$2 ..... is $G Success $N" | tee $LOGS_FILE
+        echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $2 ..... is $G Success $N" | tee $LOGS_FILE
     fi
 }
