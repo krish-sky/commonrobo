@@ -8,9 +8,12 @@ G="\e[32m" #green
 Y="\e[33m" #yellow
 N="\e[0m" #normal
 
+Start_time=$(date +%s)
+
 mkdir -p $LOGS_FOLDER
 
 echo "$(date "+%Y-%m-%d %H:%M:%S") | Script started executing at: $(date)" | tee -a $LOGS_FILE
+
 
 check_root(){
 if [ $USERID -ne 0 ]; then
@@ -26,4 +29,10 @@ VALIDATE(){
     else
         echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $2 ..... is $G Success $N" | tee $LOGS_FILE
     fi
+}
+
+Print_total_time(){
+End_time=$(date +%s)
+Total_time=$(( $End_time - $Start_time ))
+echo -e "$(date "+%Y-%m-%d %H:%M:%S") | Script execute in: $G $Total_time seconds $N" | tee -a $LOGS_FILE
 }
