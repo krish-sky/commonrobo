@@ -11,7 +11,7 @@ N="\e[0m" #normal
 START_TIME=$(date +%s)
 
 
-echo "$(date "+%Y-%m-%d %H:%M:%S) | script started executing at $(date)" | tee -a $LOGS_FILE 
+echo "$(date "+%Y-%m-%d %H:%M:%S") | script started executing at $(date)" | tee -a $LOGS_FILE 
 
 CHECKROOT(){ 
 if [ $USERID -ne 0 ]; then
@@ -36,3 +36,6 @@ TOTAL_TIME(){
     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
     echo -e "Script executed in $G $TOTAL_TIME in seconds $N"
 }
+
+
+TOTAL_TIME
