@@ -12,6 +12,8 @@ Nodejs_setup
 
 System_ctl
 
+Service_file
+
 cp $SCRIPTDIR/mongo.repo /etc/yum.repos.d/mongo.repo
 
 dnf install mongodb-org -y &>>$LOGS_FILE

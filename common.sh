@@ -52,7 +52,7 @@ Nodejs_setup(){
 }
 
     app_setup(){
-            id roboshop
+            id roboshop  &>>$LOGS_FILE
 
         if [ $? -ne 0 ]; then   
             useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
@@ -79,8 +79,10 @@ Nodejs_setup(){
     }
 
     
-    cp $SCRIPTDIR/catalogue.service /etc/systemd/system/$app_name.service
+    Service_file(){
+    cp $SCRIPTDIR/$app_name.service /etc/systemd/system/$app_name.service
     VALIDATE $? "Copying $app_name.service file"
+    }
 
     System_ctl(){
     systemctl daemon-reload
