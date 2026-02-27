@@ -24,4 +24,4 @@ systemctl restart mongod &>>$LOGS_FILE
 VALIDATE $? "systemctl restart mongodb"
 
 
-$Total_time
+Print_total_time
