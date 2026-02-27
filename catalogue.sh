@@ -14,12 +14,12 @@ System_ctl
 
 Service_file
 
-cp $SCRIPTDIR/mongo.repo /etc/yum.repos.d/mongo.repo
+cp $SCRIPTDIR/mongo.repo /etc/yum.repos.d/mongo.repo  &>>$LOGS_FILE
 
 dnf install mongodb-org -y &>>$LOGS_FILE
 VALIDATE $? "mongodb-org install"
 
-INDEX=$(mongosh --host $MONGODBIP --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
+INDEX=$(mongosh --host $MONGODBIP --quiet --eval 'db.getMongo().getDBNames().indexOf("catalogue")') &>>$LOGS_FILE
 
 if [ $INDEX -ne 0 ]; then
     mongosh --host $MONGODBIP </app/db/master-data.js
@@ -27,4 +27,4 @@ else
     echo -e "Product already exist... $Y skipping $N"
 fi
 
-Print_total_time
+Print_total_time | tee &>>$LOGS_FILE
