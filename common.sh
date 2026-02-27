@@ -21,7 +21,6 @@ if [ $USERID -ne 0 ]; then
 fi
 }
 
-mkdir -p $LOGS_FOLDER
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
