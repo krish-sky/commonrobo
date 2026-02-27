@@ -36,6 +36,3 @@ TOTAL_TIME(){
     TOTAL_TIME=$(( $END_TIME - $START_TIME ))
     echo -e "Script executed in $G $TOTAL_TIME in seconds $N"
 }
-
-
-TOTAL_TIME
