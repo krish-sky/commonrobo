@@ -8,6 +8,8 @@ G="\e[32m" #green
 Y="\e[33m" #yellow
 N="\e[0m" #normal
 
+mkdir -p $LOGS_FOLDER
+
 check_root(){
 if [ $USERID -ne 0 ]; then
     echo "Please run this script with root access"
@@ -15,7 +17,7 @@ if [ $USERID -ne 0 ]; then
 fi
 }
 
-mkdir -p $LOGS_FOLDER
+
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
