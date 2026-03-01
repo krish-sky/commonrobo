@@ -6,7 +6,7 @@ check_root
 
 app_name="mysqld"
 
-dnf install mysql-server -y
+dnf install mysql-server -y  &>>$LOGS_FILE
 VALIDATE $? "Installing Mysql"
 
 
