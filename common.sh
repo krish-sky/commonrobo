@@ -64,6 +64,20 @@ Java_setup(){
     VALIDATE $? "shipping jar"
 }
 
+Nginx(){
+    
+dnf module disable nginx -y &>>$LOGS_FILE
+VALIDATE $? "Disable Nginx"
+
+dnf module enable nginx:1.24 -y &>>$LOGS_FILE
+VALIDATE $? "Enable Nginx"
+
+dnf install nginx -y &>>$LOGS_FILE
+VALIDATE $? "Installed Nginx"
+
+
+}
+
 python(){
     
     dnf install python3 gcc python3-devel -y
