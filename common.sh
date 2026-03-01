@@ -64,11 +64,16 @@ Java_setup(){
     VALIDATE $? "shipping jar"
 
 python(){
+    
     dnf install python3 gcc python3-devel -y
     VALIDATE $? "Installing python"
 
     cd /app 
     pip3 install -r requirements.txt
+
+    pip3 install -r requirements.txt  &>>$LOGS_FILE
+    VALIDATE $? "npm install"
+
 }
 
 
