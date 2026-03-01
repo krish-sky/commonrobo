@@ -111,9 +111,6 @@ Java_setup(){
         VALIDATE $? "Restarting $app_name"
     }
 
-
-
-
 Print_total_time(){
 End_time=$(date +%s)
 Total_time=$(( $End_time - $Start_time ))
