@@ -62,6 +62,7 @@ Java_setup(){
 
     mv target/shipping-1.0.jar shipping.jar &>>$LOGS_FILE
     VALIDATE $? "shipping jar"
+}
 
 python(){
     
@@ -73,9 +74,6 @@ python(){
 
     pip3 install -r requirements.txt  &>>$LOGS_FILE
     VALIDATE $? "npm install"
-
-}
-
 
 
 }
