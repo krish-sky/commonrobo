@@ -10,9 +10,9 @@ app_setup
 
 Nodejs_setup
 
-System_ctl
-
 Service_file
+
+System_ctl
 
 cp $SCRIPTDIR/mongo.repo /etc/yum.repos.d/mongo.repo  &>>$LOGS_FILE
 
