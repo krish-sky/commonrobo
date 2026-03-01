@@ -6,6 +6,9 @@ app_name="rabbitmq-server"
 
 check_root
 
+cp $SCRIPTDIR/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
+VALIDATE $? "Added RabbitMQ repo"
+
 dnf install rabbitmq-server -y &>>$LOGS_FILE
 VALIDATE $? "Rabbitmq server"
 
